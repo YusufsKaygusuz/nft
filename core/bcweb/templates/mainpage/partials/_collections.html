@@ -1,0 +1,50 @@
+{% load static %}
+<section class="section collection" id="collection">
+    <div class="container">
+
+        <p class="section-subtitle">Most Popular</p>
+
+        <div class="title-wrapper">
+            <h2 class="h2 section-title">Popular Companies</h2>
+
+            <a href="#" class="btn-link">
+              <span>View All</span>
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+        </div>
+
+        <ul class="grid-list">
+            {% for company in popular_companies %}
+            <li>
+                <a href="#" class="card collection-card">
+
+                    <figure class="card-banner">
+                        <!-- Şirket temsilci resmi, maksimum genişlik ve yükseklik ile sınırlandırıldı -->
+                        {% if company.representative_image %}
+                        <img src="{{ company.representative_image.url }}" style="width: 300px; max-width: 600px; height: auto; object-fit: cover;" alt="{{ company.name }}">
+                        {% else %}
+                        <img src="{% static 'images/default_representative.png' %}" style="width: 100%; max-width: 600px; height: auto; object-fit: cover;" alt="Default Representative Image">
+                        {% endif %}
+                    </figure>
+
+                    <figure class="card-avatar">
+                        <!-- Şirket logosu, maksimum genişlik ve yükseklik ile sınırlandırıldı -->
+                        {% if company.logo %}
+                        <img src="{{ company.logo.url }}" style="width: 32px; height: 32px; object-fit: cover;" alt="{{ company.name }}">
+                        {% else %}
+                        <img src="{% static 'images/default_logo.png' %}" style="width: 32px; height: 32px; object-fit: cover;" alt="Default Company Logo">
+                        {% endif %}
+                    </figure>
+
+                    <h3 class="h3 card-title">{{ company.name }}</h3>
+
+                    <!-- Şirketin sahip olduğu sertifika sayısı -->
+                    <span class="card-text">{{ company.cert_count }} certificates</span>
+
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</section>

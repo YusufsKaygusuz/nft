@@ -1,0 +1,60 @@
+{% load static %}
+<section class="section certificates" id="explore">
+    <div class="container">
+
+        <p class="section-subtitle">Exclusive Certificates</p>
+
+        <div class="title-wrapper">
+            <h2 class="h2 section-title">Explore Certificates</h2>
+
+            <a href="#" class="btn-link">
+                <span>Explore All</span>
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+        </div>
+
+        <ul class="grid-list">
+
+            {% for certificate in certificates %}
+            <li>
+                <div class="card explore-card">
+
+                    <figure class="card-banner">
+                        <a href="#">
+                            <!-- Sertifika ile ilişkili kullanıcının profil resmi veya default bir resim göster -->
+                            {% if certificate.user.profile_image %}
+                            <img src="{{ certificate.provider_company.representative_image.url }}" loading="lazy" alt="{{ certificate.user.name }}" class="img-cover">
+                            {% else %}
+                            <img src="{% static 'images/default_profile.png' %}" loading="lazy" alt="Default Image" class="img-cover">
+                            {% endif %}
+                        </a>
+                    </figure>
+
+                    <h3 class="h3 card-title">
+                        <a href="#">Certificate: {{ certificate.verification_code }}</a>
+                    </h3>
+
+                    <span class="card-author">
+                        Provided By <a href="#" class="author-link">{{ certificate.provider_company.name }}</a>
+                    </span>
+
+                    <div class="wrapper">
+                        <span class="wrapper-item">Owned by: {{ certificate.user.name }} {{ certificate.user.surname }}</span>
+                        <span class="wrapper-item">Approved: {{ certificate.approved|yesno:"Yes,No" }}</span>
+                    </div>
+
+                    <button class="btn">
+                        <ion-icon name="document-outline" aria-hidden="true"></ion-icon>
+                        <span>
+                            <a href="{{ certificate.file.url }}" download>Download Certificate</a>
+                        </span>
+                    </button>
+
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+
+    </div>
+</section>

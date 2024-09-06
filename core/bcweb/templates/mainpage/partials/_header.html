@@ -1,0 +1,63 @@
+{% load static %}
+<header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="#" class="logo">
+        <img src="{% static "mainpage/images/logo.svg" %}" width="68" height="48" alt="NFTC Logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <p class="navbar-title">Menu</p>
+
+          <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="#home" class="navbar-link" data-navlink>Home</a>
+          </li>
+
+          <li>
+            <a href="#explore" class="navbar-link" data-navlink>Explore</a>
+          </li>
+
+          <li>
+            <a href="#top-seller" class="navbar-link" data-navlink>Certificates</a>
+          </li>
+
+          <li>
+            <a href="#collection" class="navbar-link" data-navlink>Collection</a>
+          </li>
+
+          <li>
+            <a href="#instruction" class="navbar-link" data-navlink>Verification
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'search_certificate' %}" class="btn">Sertificate</a>
+          </li>
+          <a href="{% url 'register' %}" class="btn">Register</a>
+        </ul>
+
+      </nav>
+
+      <button class="menu-open-btn" aria-label="Open Menu" data-nav-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      {% comment %} <a href="#" class="btn" aria-labelledby="wallet">
+        <ion-icon name="wallet-outline"></ion-icon>
+
+        <span id="wallet">Wallet Connect</span>
+      </a> {% endcomment %}
+
+    </div>
+  </header>

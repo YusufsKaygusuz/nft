@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Verification</title>
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="{% static 'mainpage/css/style.css' %}">
+
+    <style>
+        .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #fff;
+        text-align: center;
+    }
+
+    /* Search Form */
+    .search-form {
+        display: flex;
+        flex-direction: column;
+        background-color: #2c2c2c;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .search-form label {
+        color: #fff;
+        font-size: 1rem;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .search-form input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid #333;
+        background-color: #1e1e1e;
+        color: #fff;
+        font-size: 1rem;
+        transition: border 0.3s ease;
+    }
+
+    .search-form input[type="text"]:focus {
+        border-color: #4f9ef9;
+        outline: none;
+    }
+
+    .search-form .btn {
+        width: 100%;
+        padding: 15px;
+        background-color: #3b82f6;
+        color: #fff;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .search-form .btn:hover {
+        background-color: #4f9ef9;
+        transform: scale(1.05);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #3b82f6;
+        color: #ffffff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .back-to-top:hover {
+        background-color: #4f9ef9;
+    }
+    </style>
+</head>
+
+<!-- Header -->
+<header class="header" data-header>
+    <div class="container">
+        <div class="overlay" data-overlay></div>
+        <a href="{% url 'mainpage' %}" class="logo">
+            <img src="{% static 'mainpage/images/logo.svg' %}" width="68" height="48" alt="NFTC Logo">
+        </a>
+    </div>
+</header>
+
+<br><br><br><br><br><br><br>
+
+<body id="top">
+    <!-- Main Content -->
+    <main>
+        <section class="search-section" id="search">
+            <div class="container">
+                <h2 class="h2 section-title">Verify Certificate</h2>
+
+                <!-- Form for UUID input -->
+                <form action="{% url 'verify_certificate' %}" method="GET" class="search-form">
+                    <label for="certificateUUID">Certificate UUID:</label>
+                    <input type="text" id="certificateUUID" name="uuid" placeholder="Enter Certificate UUID" required>
+                    <button type="submit" class="btn">Verify</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+<br><br><br><br><br><br><br>
+    <!-- Footer -->
+    {% include 'mainpage/partials/_footer.html' %}
+
+</body>
+</html>

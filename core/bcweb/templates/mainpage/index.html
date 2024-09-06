@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'mainpage/partials/_head.html' %}
+
+<body id="top">
+{% include 'mainpage/partials/_header.html' %}
+
+  <main>
+    <article>
+      {% include 'mainpage/partials/_home.html' %}
+
+      {% include 'mainpage/partials/_explore.html' %}
+
+      {% include 'mainpage/partials/_topuser.html' %}
+
+      {% include 'mainpage/partials/_collections.html' %}
+
+      {% include 'mainpage/partials/_instruction.html' %}
+    </article>
+  </main>
+
+    {% include 'mainpage/partials/_footer.html' %}
+
+
+  <a href="#top" class="back-to-top" aria-label="Back to Top" data-back-top-btn>
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </a>
+
+
+  <script src="{% static 'mainpage/js/script.js' %}"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

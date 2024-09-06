@@ -1,0 +1,36 @@
+{% load static %}
+<section class="section top-seller" id="top-seller">
+    <div class="container">
+
+        <p class="section-subtitle">Creative Artist</p>
+
+        <h2 class="h2 section-title">Top Users</h2>
+
+        <ul class="grid-list">
+            {% for user in top_users %}
+            <li>
+                <div class="card top-seller-card">
+                    <figure class="card-avatar">
+                        <a href="#">
+                            <!-- Kullanıcı profil resmi veya default resim göster -->
+                            {% if user.profile_image %}
+                            <img src="{{ user.profile_image.url }}" width="64" height="64" loading="lazy" alt="{{ user.name }} {{ user.surname }}">
+                            {% else %}
+                            <img src="{% static 'images/default_profile.png' %}" width="64" height="64" loading="lazy" alt="Default Avatar">
+                            {% endif %}
+                        </a>
+                    </figure>
+
+                    <div>
+                        <h3 class="card-title">
+                            <a href="#">@{{ user.name }} {{ user.surname }}</a>
+                        </h3>
+                        <!-- Sertifika sayısını burada gösteriyoruz -->
+                        <p>{{ user.cert_count }} certificates</p>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
